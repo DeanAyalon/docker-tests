@@ -1,0 +1,20 @@
+name: tests
+services:
+  volume-tests: 
+    profiles:
+      - volumes
+    container_name: volume-tests
+    hostname: volume-tests
+    image: nginx
+    # volumes:
+      # - /usr              # If no host path is defined, a volume will be created named: project_service (tests_volume-tests)
+      # - /home             # For a second undefined host spath, the volume name will be a random hash
+
+      # - ./test:/usr       # The mount will replace /usr regardless of whether it's non-existent, empty or not
+
+      # - testvol:/usr      # If homevol is undefined or empty, it will be initialized with the contents of /usr
+      # - testvol:/usr:ro   # This is the same even with volumes that have a read-only permission set for the container
+
+
+volumes:
+  testvol:
