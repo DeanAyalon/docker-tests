@@ -1,6 +1,6 @@
 name: tests
 services:
-  volume-tests: 
+  volume: 
     profiles:
       - volumes
     container_name: volume-tests
@@ -14,7 +14,6 @@ services:
 
       # - testvol:/usr      # If homevol is undefined or empty, it will be initialized with the contents of /usr
       # - testvol:/usr:ro   # This is the same even with volumes that have a read-only permission set for the container
-
 
 volumes:
   testvol:
