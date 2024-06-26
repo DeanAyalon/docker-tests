@@ -1,0 +1,5 @@
+services:
+  generic:
+    image: ubuntu:22.04
+    stop_grace_period: 0s
+    command: tail -f /dev/null

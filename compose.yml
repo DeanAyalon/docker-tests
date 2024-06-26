@@ -1,11 +1,30 @@
 name: tests
 services:
+  env: 
+    extends: 
+      file: compose.base.yml
+      service: generic
+    profiles:
+      - env
+    container_name: env-tests
+    hostname: env-tests
+    env_file:                   # Defines container environment variables - NOT compose interpolated variables
+      - env/container.env
+      # Could also define the container's environment file using the interpolated environment variables:
+      - ${ENV_OVERRIDE:-env/container.env}       # Will use the $CONTAINER_ENV defined within .env as the filename for the container environment
+    ports: 
+      - ${PORT:?Port must be specified!}      # To interpolate from a different .env file, use `docker compose -e another.env`
+    environment:
+      - another_var=${INTERPOLATED_VAR:-default value}
+
   volume: 
+    extends: 
+      file: compose.base.yml
+      service: generic
     profiles:
       - volumes
     container_name: volume-tests
     hostname: volume-tests
-    image: nginx
     # volumes:
       # - /usr              # If no host path is defined, a volume will be created named: project_service (tests_volume-tests)
       # - /home             # For a second undefined host spath, the volume name will be a random hash
@@ -15,5 +34,5 @@ services:
       # - testvol:/usr      # If homevol is undefined or empty, it will be initialized with the contents of /usr
       # - testvol:/usr:ro   # This is the same even with volumes that have a read-only permission set for the container
 
-volumes:
-  testvol:
+# volumes:
+#   testvol:
