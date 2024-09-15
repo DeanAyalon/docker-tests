@@ -1,3 +1,4 @@
+#!/usr/bin/env docker compose -f
 name: tests
 services:
   env: 
