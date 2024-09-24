@@ -56,7 +56,7 @@ Project name priority order:
 How do Docker Volumes behave when they're uninitialized or empty?
 
 - **Named Volume** - When empty or undefined, a named volume will be created with the contents of the directory it's bound to.
-    > Even if the container has read-only permissions to the volume.
+    > Even if the container has read-only permissions to the volume!
 - **Bind Mount** - When undefined, an empty directory is created. The contents of the directory, even if empty, always override the container.
 
 ## Shebang
@@ -72,4 +72,11 @@ Instead, GNU env provides the `-S` flag that splits the string: `#!/usr/bin/env 
 env "-S docker compose -f" ./compose.yml
 # which runs:
 docker compose -f ./compose.yml
+```
+
+So:
+```sh
+./minor-tests/compose.shebang.yml up
+# essentially runs the same thing as
+docker compose -f ./minor-tests/compose.shebang.yml up
 ```

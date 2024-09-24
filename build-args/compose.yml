@@ -1,0 +1,13 @@
+name: tests
+services:
+  build-args:
+    image: deanayalon/tests:build-args
+    container_name: build-args-tests
+    build: 
+      args:
+        # Overrides any default value set in the dockerfile, even if empty!
+        SOMEARG: $SOMEARG
+        WITHDEFAULT: ${WITHDEFAULT:-default value}
+        MANDATORY: ${MANDATORY:?Error, MANDATORY must be defined in .env}
+        MANDATORYINDOCKERFILE: $MANDATORYINDOCKERFILE
+    command: cat args.txt

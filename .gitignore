@@ -1,5 +1,5 @@
 # Environment
 *.env
+
+!template.env
 !example.env
-!container.env
-!env/*

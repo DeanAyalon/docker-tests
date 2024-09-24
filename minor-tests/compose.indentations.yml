@@ -1,3 +1,4 @@
+name:             tests
 services: 
   someservice:
         image: alpine
@@ -9,3 +10,5 @@ services:
                     - 443:443
   anotherservice:
                    image: alpine
+
+# Still valid YAML syntax

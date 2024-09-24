@@ -1,0 +1,23 @@
+name: tests
+services:
+  volume: 
+    extends: 
+      file: ../compose.base.yml
+      service: generic
+    container_name: volume-tests
+    hostname: volume-tests
+    # volumes:
+      # - /usr              # If no host path is defined, an unnamed volume will be created
+
+      # - ./test:/usr       # The mount will replace /usr regardless of whether it's non-existent, empty or not
+
+      # - testvol:/usr      # If homevol is undefined or empty, it will be initialized with the contents of /usr
+      # - testvol:/usr:ro   # This is the same even with volumes that have a read-only permission set for the container!
+
+      # - externalvol:/external # This volume will not be created by Docker Compose
+      
+
+# volumes:
+#   testvol:
+#   externalvol:
+#     external: true  # Will reject any other attributes, as this volume is not managed by compose

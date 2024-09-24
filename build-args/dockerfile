@@ -1,0 +1,23 @@
+FROM alpine
+
+ARG SOMEARG=defaultvalue
+# Overridden by the value from the compose file - EVEN IF EMPTY
+
+ARG MANDATORY
+# Only mandatory for the compose file, the dockerfile can be used without it
+
+ARG MANDATORYINDOCKERFILE
+RUN test -n "$MANDATORYINDOCKERFILE" || false
+# Enforces this variable as mandatory on the build level, even if not using compose
+
+ARG WITHDEFAULT
+# Has no default value if not used with the provided compose value
+
+ARG NOTINCOMPOSE=defaultvalue
+
+RUN echo \
+    "SOMEARG: ${SOMEARG} \
+    MANDATORY: ${MANDATORY} \
+    MANDATORY: ${MANDATORYINDOCKERFILE} \
+    WITHDEFAULT: ${WITHDEFAULT} \
+    NOTINCOMPOSE: ${NOTINCOMPOSE}" > args.txt

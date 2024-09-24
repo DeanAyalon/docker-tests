@@ -1,0 +1,7 @@
+#!/usr/bin/env -S docker compose -f
+name: tests
+services:
+  shebang:
+    image: alpine
+    container_name: shebang-test
+    command: echo Working!

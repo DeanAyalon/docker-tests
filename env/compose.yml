@@ -1,0 +1,23 @@
+name: tests
+services:
+  env: 
+    extends: 
+      file: ../compose.base.yml
+      service: generic
+    container_name: env-tests
+    hostname: env-tests
+    env_file:                   # Defines container environment variables - NOT compose interpolated variables
+      - container.env
+      - ${ENV_OVERRIDE:-override.env}
+        # Will use the $ENV_OVERRIDE defined within .env as the filename for the container environment override
+        # Will use override.env by default
+        # To interpolate variables from a different .env file, use `docker compose --env-file another.env`
+      - path: optional.env
+        required: false   # true by default
+    ports: 
+      - ${PORT:?Port must be specified!}
+    environment:
+      INTERPOLATED_VAR: ${INTERPOLATED_VAR:-default value}
+      THIRD_VAR: somevalue
+      # Overrides variables defined through `env_file`
+    command: env
