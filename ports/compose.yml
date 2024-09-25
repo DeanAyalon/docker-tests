@@ -1,0 +1,21 @@
+name: tests
+services:
+  expose:
+    image: alpine
+    expose: [80]
+  map:
+    image: alpine
+    ports: [':80']
+  both:
+    image: alpine
+    expose: [80]    # 80
+    ports: [':80']    # 80/tcp
+  # RESULTS IN:
+  # "ExposedPorts": {
+  #     "80": {},
+  #     "80/tcp": {}
+  # },
+  both-tcp:
+    image: alpine
+    expose: [80/tcp]
+    ports: [':80']
