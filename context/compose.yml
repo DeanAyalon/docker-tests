@@ -1,0 +1,7 @@
+services:
+  test:
+    image: alpine
+    hostname: $CONTAINER
+    command: hostname
+
+# Doesn't matter where the compose command runs from, the variables are interpolated from .env in this direvtory

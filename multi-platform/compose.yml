@@ -1,0 +1,20 @@
+services:
+  amd: 
+    image: deanayalon/test:amd
+    build:
+      platforms:
+        - linux/amd64
+    command: cat arch
+  arm:
+    image: deanayalon/test:arm
+    build:
+      platforms:
+        - linux/arm64/v8
+    command: cat arch
+  both:
+    image: deanayalon/test:multi-platform
+    build:
+      platforms:
+        - linux/amd64
+        - linux/arm64/v8
+    command: cat arch
