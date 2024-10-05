@@ -1,0 +1,11 @@
+ARG TEST
+
+FROM alpine as build
+
+ARG TEST
+RUN echo "build: $TEST" > build
+
+FROM alpine 
+
+COPY --from=build /build .
+RUN echo "final: $TEST" > final

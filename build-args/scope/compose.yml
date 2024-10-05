@@ -1,0 +1,8 @@
+services:
+  persistence:
+    image: deanayalon/tests:arg-persistence
+    build: 
+      args: 
+        TEST: test
+    tty: true
+    command: cat build final

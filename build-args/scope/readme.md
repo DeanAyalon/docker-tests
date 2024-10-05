@@ -1,0 +1,1 @@
+This test was created to confirm build arguments only exist for the stages they're defined on, as [documented](https://docs.docker.com/build/building/variables/#scoping)
