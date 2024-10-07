@@ -1,0 +1,9 @@
+name: tests
+services:
+  docker:
+    image: docker
+    container_name: inner-mount
+    hostname: inner-mount
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    command: tail -f /dev/null
