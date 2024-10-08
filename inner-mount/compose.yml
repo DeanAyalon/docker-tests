@@ -7,3 +7,4 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     command: tail -f /dev/null
+    stop_grace_period: 0s

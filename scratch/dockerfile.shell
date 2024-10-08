@@ -1,0 +1,3 @@
+FROM scratch
+COPY --from=alpine /bin/sh /bin/sh
+ENTRYPOINT [ "/bin/sh" ]

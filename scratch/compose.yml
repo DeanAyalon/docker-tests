@@ -1,0 +1,19 @@
+name: tests
+services:
+  scratch: 
+    image: deanayalon/scratch
+    container_name: scratch
+    build: 
+      dockerfile_inline: FROM scratch
+    command: [""]
+
+  tail:
+    image: deanayalon/scratch:tail
+    container_name: tail
+    build:
+      dockerfile: dockerfile.tail
+
+  shell:
+    image: deanayalon/scratch:shell
+    build:
+      dockerfile: dockerfile.shell
