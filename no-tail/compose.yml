@@ -1,0 +1,13 @@
+name: bind-init
+services:
+  no-tail:
+    image: hello-world
+    volumes:
+      - /usr/bin/tail:/bin/tail:ro
+    command: tail -f /dev/null
+
+  alpine:
+    image: alpine
+    volumes:
+      - /usr/bin/tail:/test/tail:ro
+    command: ls test
