@@ -1,0 +1,4 @@
+FROM alpine
+RUN echo test > file
+VOLUME [ "/file" ]
+CMD [ "cat", "file" ]
