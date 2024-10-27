@@ -10,4 +10,5 @@ docker compose build
 With no default attestations, GitHub does not include the 'unknown/unknown' platform.
 
 ## Implications
-Not sure
+Might affect the security of the image, as the default attestations provide metadata that helps verify the origin and integrity of the build.<br>
+This includes information on the source code, build environment, and other details that are crucial for ensuring the image hasn’t been tampered with.
