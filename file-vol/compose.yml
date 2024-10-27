@@ -1,0 +1,19 @@
+name: tests
+services:
+  # Will create an anonymous volume, and refuse to create the container
+  base:
+    image: deanayalon/test:file-vol
+    build: .
+
+  # Will refuse to be created
+  vol:
+    extends: base
+    volumes: [vol:/file]
+
+  # Will work if file exists, will not work if doesn't or is a directory
+  bind:
+    extends: base
+    volumes: [./file:/file]
+
+volumes:
+  vol:
