@@ -1,0 +1,9 @@
+name: tests
+services:
+  test:
+    image: ghcr.io/deanayalon/test:no-attest
+    build: 
+      dockerfile_inline: FROM alpine
+      platforms:
+        - linux/amd64
+        - linux/arm64/v8
