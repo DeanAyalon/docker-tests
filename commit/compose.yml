@@ -1,0 +1,16 @@
+name: tests
+services:
+  commit:
+    # use: |
+      # docker compose up commit
+      # docker commit curl-commit deanayalon/test:curl-commit
+    image: alpine
+    container_name: curl-commit
+    command: apk add curl
+  
+  build:
+    image: deanayalon/test:curl-build
+    build: 
+      dockerfile_inline: |
+        FROM alpine
+        RUN apk add curl
