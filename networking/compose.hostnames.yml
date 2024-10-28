@@ -1,0 +1,9 @@
+services:
+  service_a:
+    image: nginx
+    container_name: container_a
+    hostname: host_a
+  service_b:
+    image: nginx
+    container_name: container_b
+    hostname: host_b
