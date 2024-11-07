@@ -17,3 +17,12 @@ services:
     image: deanayalon/scratch:shell
     build:
       dockerfile: dockerfile.shell
+
+  cp:
+    image: deanayalon/scratch:cp
+    build:
+      dockerfile_inline: |
+        FROM scratch
+        COPY --from=alpine /lib/apk/db/installed .
+    command: 'tail -f /dev/null'
+    # Test docker cp on scratch images
