@@ -1,9 +1,7 @@
 FROM gcc AS build 
 COPY hello.c /
-RUN gcc -o hello hello.c
-# ENTRYPOINT [ "/hello" ]
+RUN gcc -static -o hello hello.c
 
-# Why does this not work?
-# FROM scratch
-# COPY --from=build /hello /hello
-# ENTRYPOINT [ "/hello" ]
+FROM scratch
+COPY --from=build /hello /
+ENTRYPOINT [ "/hello" ]
