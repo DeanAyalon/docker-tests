@@ -26,3 +26,10 @@ services:
         COPY --from=alpine /lib/apk/db/installed .
     command: 'tail -f /dev/null'
     # Test docker cp on scratch images
+
+  # Simple hello NAME binary
+  hello:
+    build: ./hello
+    image: deanayalon/scratch:hello
+    container_name: hello
+    command: Dean!
