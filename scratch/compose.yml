@@ -33,3 +33,9 @@ services:
     image: deanayalon/scratch:hello
     container_name: hello
     command: Dean!
+
+  # Idle binary
+  idle:
+    build: ./idle
+    image: deanayalon/scratch:idle
+    container_name: idle
