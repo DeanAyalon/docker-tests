@@ -1,3 +1,7 @@
 {
-    "window.title": "${activeEditorShort}${separator}Docker Tests${separator}${profileName}"
+    "window.title": "${activeEditorShort}${separator}Docker Tests${separator}${profileName}",
+    "yaml.customTags": [
+        "!override", "!override sequence",
+        "!reset", "!reset sequence"
+    ]
 }

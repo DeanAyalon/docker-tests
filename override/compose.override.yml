@@ -2,5 +2,6 @@ services:
   test:
     ports: !override [443]  # Override ports
     environment:
-      VAR2: !reset null     # Remove VAR2
-      VAR3: val3
+      VAR1: !override overriden value     # Override var1
+      VAR2: !reset null                   # Remove VAR2 
+      VAR3: val3  
