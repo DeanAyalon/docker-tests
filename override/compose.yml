@@ -1,0 +1,12 @@
+services:
+  test:
+    image: deanayalon/scratch:idle
+    # image: alpine
+    stop_grace_period: 0s
+    # command: env
+    ports:
+      - 8080
+    environment:
+      VAR1: val1
+      VAR2: val2
+    
