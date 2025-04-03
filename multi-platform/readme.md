@@ -8,16 +8,13 @@ This works, which means [fms-docker](https://github.com/deanayalon/fms-docker)'s
 Docker receently introduces the experimental `docker images --tree` flag, which lists the images along with their platforms
 
 # Usage
-The image is simply bsed on `alpine`, with files created within `/platform` named like so:
+The image is simply bsed on `alpine`, with the image's target platform and arcitecture, along with build platform are printed into files like so:
 ```
 /platform
-├── arch - <ARCHITECTURE>
-├── built on <BUILD PLATFORM>
-└── platform - <TARGET PLATFORM>    (Image platform)
+├── arch
+├── built-on
+└── platform
 ```
-Filenames are synthasized to convert `/` into `-`
-
-> The reason for naming the files after the platform rather than echoing it into them is for easily distinguishing between the platforms when using tools like [Docker Dive](https://github.com/wagoodman/dive), on which I'd like to create a `--platform` feature, provided I figure out how to navigate their system with no Go knowledge
 
 # Questions
 Pulling the alpine image and listing, I get the following output:

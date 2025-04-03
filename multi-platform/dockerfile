@@ -5,8 +5,8 @@ ARG BUILDPLATFORM
 WORKDIR /platform
 
 # Synthasize filenames turning `/` into `-`
-RUN touch "platform - $( echo "$TARGETPLATFORM" | sed 's/\//-/g' )"
-RUN touch "built on $( echo "$BUILDPLATFORM" | sed 's/\//-/g' )"
-RUN touch "arch - $( echo "$(uname -m)" | sed 's/\//-/g' )"
+RUN echo "Target platform - $TARGETPLATFORM" > platform & \
+    echo "Built on $BUILDPLATFORM" > "built-on" & \
+    echo "Architecture - $(uname -m)" > arch
 
-CMD ls
+CMD cat $(ls)
