@@ -1,4 +1,12 @@
 FROM alpine
-WORKDIR /arch
-RUN touch $(uname -m)
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
+
+WORKDIR /platform
+
+# Synthasize filenames turning `/` into `-`
+RUN touch "platform - $( echo "$TARGETPLATFORM" | sed 's/\//-/g' )"
+RUN touch "built on $( echo "$BUILDPLATFORM" | sed 's/\//-/g' )"
+RUN touch "arch - $( echo "$(uname -m)" | sed 's/\//-/g' )"
+
 CMD ls

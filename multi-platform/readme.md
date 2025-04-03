@@ -7,6 +7,18 @@ This works, which means [fms-docker](https://github.com/deanayalon/fms-docker)'s
 # Learned
 Docker receently introduces the experimental `docker images --tree` flag, which lists the images along with their platforms
 
+# Usage
+The image is simply bsed on `alpine`, with files created within `/platform` named like so:
+```
+/platform
+├── arch - <ARCHITECTURE>
+├── built on <BUILD PLATFORM>
+└── platform - <TARGET PLATFORM>    (Image platform)
+```
+Filenames are synthasized to convert `/` into `-`
+
+> The reason for naming the files after the platform rather than echoing it into them is for easily distinguishing between the platforms when using tools like [Docker Dive](https://github.com/wagoodman/dive), on which I'd like to create a `--platform` feature, provided I figure out how to navigate their system with no Go knowledge
+
 # Questions
 Pulling the alpine image and listing, I get the following output:
 ```
@@ -28,6 +40,7 @@ alpine:latest                    beefdbd8a1da       25.7MB         7.72MB
 
 
 - **Why is my ARM image platform `linux/arm64` and not `linux/arm64/v8`?**
-When using `--platform linux/arm/v8`, it actually uses alpine for `linux/arm/v7`
+When using `--platform linux/arm/v8`, alpine actually uses `linux/arm/v7`
 
 - **Why are the `deanayalon/test` images for `linux/arm64` disk usage a third of the size as the `alpine` image used as base?**
+Perhaps it is the reusing of alpine's layers? 
