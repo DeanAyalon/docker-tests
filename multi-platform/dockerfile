@@ -1,3 +1,4 @@
 FROM alpine
-
-RUN uname -m > arch
+WORKDIR /arch
+RUN touch $(uname -m)
+CMD ls
